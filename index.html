@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>My Simple Calculator, base on JavaScript..</h1>
+    <section id="container">
+        <div>
+            <input type="text" id="display" placeholder="Display">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><button onclick="input(`7`)">7</button></td>
+                        <td><button onclick="input(`8`)">8</button></td>
+                        <td><button onclick="input(`9`)">9</button></td>
+                        <td><button onclick="input(`/`)">/</button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="input(`4`)">4</button></td>
+                        <td><button  onclick="input(`5`)">5</button></td>
+                        <td><button  onclick="input(`6`)">6</button></td>
+                        <td><button  onclick="input(`*`)">x</button></td>
+                    </tr>
+                    <tr>
+                        <td><button  onclick="input(`1`)">1</button></td>
+                        <td><button  onclick="input(`2`)">2</button></td>
+                        <td><button  onclick="input(`3`)">3</button></td>
+                        <td><button  onclick="input(`-`)">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button  onclick="allClear()">C</button></td>
+                        <td><button  onclick="input(`0`)">0</button></td>
+                        <td><button  onclick="calculation()">=</button></td>
+                        <td><button  onclick="input(`+`)">+</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script>
+
+        function input(value) {
+            let current = document.getElementById(`display`).value;
+            if (current == 0) {
+                document.getElementById(`display`).value = value;
+            }
+            if (current !== 0) {
+                document.getElementById(`display`).value = current + value;
+            }
+        }
+        function allClear() {
+            document.getElementById(`display`).value = ``;
+        }
+
+        function calculation() {
+            document.getElementById(`display`).value = eval(document.getElementById(`display`).value);
+        }
+
+    </script>
+</body>
+</html>
